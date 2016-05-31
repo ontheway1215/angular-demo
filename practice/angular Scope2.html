@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<script src="angular.min.js"></script>
+</head>
+<body>
+	<div ng-app="myApp" ng-controller="myCtrl">
+		<input type="text" ng-model="name" />
+		<h1>我的名字是{{name}}</h1>
+	</div>
+<script type="text/javascript">
+	var app=angular.module("myApp",[]);
+	app.controller("myCtrl",function($scope) {
+		$scope.name="john doe";
+	})
+</script>
+<p>当你修改输入框中的值时，会影响模型(model),当然也会影响到控制器对应的值。</p>
+</body>
+</html>
