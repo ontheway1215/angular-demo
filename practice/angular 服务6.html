@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<script src="angular.min.js"></script>
+</head>
+<body>
+<div ng-app="myApp">
+	在过滤器中使用服务：
+	<h3>{{255 | myFormat}}</h3>
+</div>
+<script type="text/javascript">
+	var app=angular.module("myApp",[]);
+	app.service("hexafy",function() {
+		this.myFunc = function (x) {
+			return x.toString(16);
+		}
+	});
+	app.filter("myFormat",["hexafy",function(hexafy) {
+		return function(x) {
+			return hexafy.myFunc(x);
+		};
+	}]
+	)
+</script>
+</body>
+</html>
